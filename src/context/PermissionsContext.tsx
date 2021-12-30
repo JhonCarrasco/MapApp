@@ -28,6 +28,8 @@ export const PermissionsProvider = ({children}: any) => {
   const [permissions, setPermissions] = useState(permissionInitState)
 
   useEffect(() => {
+    checkLocationPermission() // para que no quede el Loading al refrescar la aplicación
+
     AppState.addEventListener('change', state => {
       if (state !== 'active') {
         return
